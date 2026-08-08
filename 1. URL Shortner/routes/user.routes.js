@@ -48,6 +48,9 @@ router.post('/signup', async (req, res) => {
         // Returning id of the user when inserted using returning
     }).returning({ id: usersTable.id })
 
+    // Returning a 201 created response with data as id in json format 
+    return res.status(201).json({ data: {userId: user.id}})
+
 })
 
 // Exporting default so that it can be called by any name
