@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1. URL Shortner/5. Setting up Drizzle ORM.md",
+                "file": "1. URL Shortner/6. Implementing User Schema.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "5. Setting up Drizzle ORM"
+              "title": "6. Implementing User Schema"
             }
           }
         ]
@@ -191,10 +191,11 @@
   },
   "active": "925050af35355bbb",
   "lastOpenFiles": [
+    "Pasted image 20260808235608.png",
+    "1. URL Shortner/5. Setting up Drizzle ORM.md",
     "Pasted image 20260808234715.png",
     "Pasted image 20260808234535.png",
     "1. URL Shortner/6. Implementing User Schema.md",
-    "1. URL Shortner/5. Setting up Drizzle ORM.md",
     "1. URL Shortner/4. Configuring PostgreSQL with Docker.md",
     "Pasted image 20260808234140.png",
     "Pasted image 20260808231148.png",
