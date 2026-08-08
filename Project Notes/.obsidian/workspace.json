@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1. URL Shortner/4. Configuring PostgreSQL with Docker.md",
+                "file": "1. URL Shortner/5. Setting up Drizzle ORM.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "4. Configuring PostgreSQL with Docker"
+              "title": "5. Setting up Drizzle ORM"
             }
           }
         ]
@@ -191,6 +191,7 @@
   },
   "active": "925050af35355bbb",
   "lastOpenFiles": [
+    "1. URL Shortner/4. Configuring PostgreSQL with Docker.md",
     "Pasted image 20260808231148.png",
     "Pasted image 20260808231027.png",
     "1. URL Shortner/3. Clean Express Server Setup.md",
@@ -199,7 +200,6 @@
     "1. URL Shortner/6. Implementing User Schema.md",
     "1. URL Shortner/5. Setting up Drizzle ORM.md",
     "Untitled.md",
-    "1. URL Shortner/4. Configuring PostgreSQL with Docker.md",
     "Pasted image 20260808210431.png",
     "1. URL Shortner/2. Tech Stack Overview.md",
     "Notes",
