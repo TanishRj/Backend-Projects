@@ -1,7 +1,7 @@
 import express from 'express'
 
 const app = express()
-const PORT = process.env.PORT ?? 800
+const PORT = process.env.PORT ?? 8000
 
 app.get('/', async (req, res) => {
     return res.json({status : `API Health OK`})
