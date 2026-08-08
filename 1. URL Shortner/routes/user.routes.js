@@ -1,0 +1,54 @@
+// Importing express
+import express from 'express'
+// Importing db
+import { db } from '../db/index.js'
+// Importing users table
+import { usersTable } from '../models/user.model.js'
+// Importing equals to from drizzle orm
+import { eq } from 'drizzle-orm'
+// Importing crypto module
+import {randomBytes, createHmac} from 'crypto'
+
+
+// Creating new router for routes
+const router = express.Router()
+
+// Signup Route
+router.post('/signup', async (req, res) => {
+    // Getting user details from request body
+    const { firstname, lastname, email, password } = req.body
+
+    // Validation for existing user which returns an array
+    const [existingUser] = await db.select({
+        // Selecting id of the user
+        id: usersTable.id
+    })
+    .from(usersTable)
+    // Checking if users email already exists
+    .where(eq(usersTable.email, email))
+
+    // Giving a response if the user already exists
+    if (existingUser){
+        return res.status(400).json({error: `The user with email ${email} already exists`})
+    }
+
+    // Hashing password using crypto module
+    const salt = randomBytes(256).toString('hex')
+    // Hashing password using generated salt
+    const hashedPassword = createHmac('sha256', salt).update(password).digest('hex')
+
+    // If user does not exists, inserting new one
+    const [user] = await db.insert(usersTable).values({
+        email,
+        firstname,
+        lastname,
+        salt,
+        password: hashedPassword,
+
+        // Returning id of the user when inserted using returning
+    }).returning({ id: usersTable.id })
+
+})
+
+// Exporting default so that it can be called by any name
+export default router;
