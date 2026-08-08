@@ -7,16 +7,26 @@ import { usersTable } from '../models/user.model.js'
 // Importing equals to from drizzle orm
 import { eq } from 'drizzle-orm'
 // Importing crypto module
-import {randomBytes, createHmac} from 'crypto'
-
+import {randomBytes, createHmac, sign} from 'crypto'
+// Importing zod user validation schema
+import {signupPostRequestBodySchema} from '../validation/request.validation.js' 
 
 // Creating new router for routes
 const router = express.Router()
 
 // Signup Route
 router.post('/signup', async (req, res) => {
-    // Getting user details from request body
-    const { firstname, lastname, email, password } = req.body
+    // Getting validation results from zod user schema
+    const validationResult = await signupPostRequestBodySchema.safeParseAsync(req.body)
+
+    // If validation result have an error means validation is failed
+    if(validationResult.error) {
+        // Passing validation error message in a formatted way
+        return res.status(400).json({error: validationResult.error.format()})
+    }
+
+    // Destructuring details of user from validated result
+    const {firstname, lastname, email, password} = validationResult.data
 
     // Validation for existing user which returns an array
     const [existingUser] = await db.select({
