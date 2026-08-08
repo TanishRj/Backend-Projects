@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1. URL Shortner/2. Tech Stack Overview.md",
+                "file": "1. URL Shortner/3. Clean Express Server Setup.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2. Tech Stack Overview"
+              "title": "3. Clean Express Server Setup"
             }
           }
         ]
@@ -83,7 +83,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "95b9c503f806f46f",
@@ -188,15 +189,17 @@
       "bases:Create new base": false
     }
   },
-  "active": "072ab1d66c7f94ed",
+  "active": "925050af35355bbb",
   "lastOpenFiles": [
+    "Untitled.md",
+    "1. URL Shortner/3. Clean Express Server Setup.md",
+    "1. URL Shortner/2. Tech Stack Overview.md",
     "Notes",
     "New folder",
     "Pasted image 20260808164735.png",
     "Pasted image 20260808164718.png",
     "Pasted image 20260808164526.png",
     "1. URL Shortner/1. Overview of Project.md",
-    "1. URL Shortner/2. Tech Stack Overview.md",
     "1. URL Shortner"
   ]
 }
