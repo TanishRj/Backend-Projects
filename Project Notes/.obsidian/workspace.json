@@ -83,7 +83,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "95b9c503f806f46f",
@@ -188,7 +189,7 @@
       "bases:Create new base": false
     }
   },
-  "active": "072ab1d66c7f94ed",
+  "active": "925050af35355bbb",
   "lastOpenFiles": [
     "1. URL Shortner/8. Adding ZOD for Validation.md",
     "1. URL Shortner/7. Creating Secure Signup Route.md",
