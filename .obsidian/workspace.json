@@ -11,10 +11,14 @@
             "id": "e3edd19fd2cd08ad",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Project Notes/1. URL Shortner/8. Adding ZOD for Validation.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "8. Adding ZOD for Validation"
             }
           }
         ]
