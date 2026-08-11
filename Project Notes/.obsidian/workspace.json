@@ -20,21 +20,8 @@
               "icon": "lucide-file",
               "title": "5. Setting up Drizzle ORM"
             }
-          },
-          {
-            "id": "30c8464d73aa8ac7",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.13.6"
-              },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.13.6"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -96,8 +83,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "95b9c503f806f46f",
@@ -202,7 +188,7 @@
       "bases:Create new base": false
     }
   },
-  "active": "30c8464d73aa8ac7",
+  "active": "925050af35355bbb",
   "lastOpenFiles": [
     "1. URL Shortner/8. Adding ZOD for Validation.md",
     "1. URL Shortner/7. Creating Secure Signup Route.md",
