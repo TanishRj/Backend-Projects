@@ -188,6 +188,8 @@
   },
   "active": "e3edd19fd2cd08ad",
   "lastOpenFiles": [
+    "1. URL Shortner/utils/hash.js",
+    "1. URL Shortner/utils",
     "Project Notes/1. URL Shortner/12. Creating Authentication Middleware.md",
     "Project Notes/1. URL Shortner/11. Refactoring JWT Sign and Verify Logic into Functions.md",
     "Project Notes/1. URL Shortner/10. Building Login Route with JWT.md",
