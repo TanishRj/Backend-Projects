@@ -29,7 +29,7 @@ router.post('/signup', async (req, res) => {
     const {firstname, lastname, email, password} = validationResult.data
 
     // Checking existing user by the imported function
-    const existingUser = getUserByEmail(email)
+    const existingUser = await getUserByEmail(email)
 
     // Giving a response if the user already exists
     if (existingUser){
@@ -39,20 +39,11 @@ router.post('/signup', async (req, res) => {
     // Function returns salt and hashed password
     const {salt, password: hashedPassword} = hashPasswordWithSalt(password)
     
-    // If user does not exists, inserting new one
-    const [user] = await db.insert(usersTable).values({
-        email,
-        firstname,
-        lastname,
-        salt,
-        password: hashedPassword,
-
-        // Returning id of the user when inserted using returning
-    }).returning({ id: usersTable.id })
-
+    // Inserts new user using insert New user from services file
+    const user = await insertNewUser(email, firstname, lastname, salt, hashedPassword)
     
     // Returning a 201 created response with data as id in json format 
-    return res.status(201).json({ data: {userId: user.id}})
+    return res.status(201).json({ id: user })
 
 })
 
