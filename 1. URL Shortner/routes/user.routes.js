@@ -67,6 +67,14 @@ router.post('/login', async (req, res) => {
     if (!user){
         return res.json(404).json({error: `User with email ${email} does not exists`})
     }
+
+    // Getting password from validation and salt which is returned by getUserByEmail
+    const {password: hashedPassword} = hashPasswordWithSalt(password, user.salt)
+
+    // Checking if users password matches with the hashed password
+    if(user.password !== hashedPassword){
+        return res.status(400).json({message: `Invalid username or Password`})
+    }
 })
 
 // Exporting default so that it can be called by any name
