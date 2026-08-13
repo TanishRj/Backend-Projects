@@ -6,8 +6,6 @@ import { db } from '../db/index.js'
 import { usersTable } from '../models/user.model.js'
 // Importing equals to from drizzle orm
 import { eq } from 'drizzle-orm'
-// Importing crypto module
-import {randomBytes, createHmac, sign} from 'crypto'
 // Importing zod user validation schema
 import {signupPostRequestBodySchema} from '../validation/request.validation.js' 
 // Importing Hahingmethod from our hash.js file
