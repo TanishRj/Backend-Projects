@@ -1,3 +1,6 @@
+// Importing token validation method
+import {validateUserToken} from '../utils/token.js'
+
 // Creating JS Doc for req, res and next
 /**
  * 
@@ -22,5 +25,5 @@ function authenticationMiddleware(req, res, next){
 
     // Splitting Bearer and Token
     const [_, token] = authHeader.split(' ')
-    
+
 }

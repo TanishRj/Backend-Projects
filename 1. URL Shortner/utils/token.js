@@ -17,3 +17,15 @@ export async function createUserToken(payload){
     const token = jwt.sign(payloadValidatedData, JWT_SECRET)
     return token
 }
+
+// Creating and exporting a Token verification function
+export function validateUserToken(token){
+    // Verifying under try catch block
+    try {
+        const payload = jwt.verify(token, JWT_SECRET)
+        return payload
+    // Returning null if error found
+    } catch (error) {
+        return null
+    }
+}
