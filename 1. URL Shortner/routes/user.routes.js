@@ -45,11 +45,8 @@ router.post('/signup', async (req, res) => {
         return res.status(400).json({error: `The user with email ${email} already exists`})
     }
 
-    // Hashing password using crypto module
-    const salt = randomBytes(256).toString('hex')
-    // Hashing password using generated salt
-    const hashedPassword = createHmac('sha256', salt).update(password).digest('hex')
-
+    // Function returns salt and hashed password
+    const {salt, password: hashedPassword} = hashPasswordWithSalt(password)
     // If user does not exists, inserting new one
     const [user] = await db.insert(usersTable).values({
         email,
