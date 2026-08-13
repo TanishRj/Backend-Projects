@@ -56,7 +56,7 @@ router.post('/login', async (req, res) => {
 
     // Checking if any error is returned in validation result
     if (validationResult.error) {
-        return res.status(400).json({error: validationResult.error})
+        return res.status(400).json({error: validationResult.error.format()})
     }
 
     // Getting data from validation 
