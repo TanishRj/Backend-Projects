@@ -10,6 +10,9 @@ import { eq } from 'drizzle-orm'
 import {randomBytes, createHmac, sign} from 'crypto'
 // Importing zod user validation schema
 import {signupPostRequestBodySchema} from '../validation/request.validation.js' 
+// Importing Hahingmethod from our hash.js file
+import {hashPasswordWithSalt} from '../utils/hash.js'
+
 
 // Creating new router for routes
 const router = express.Router()
