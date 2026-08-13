@@ -11,8 +11,8 @@ import {hashPasswordWithSalt} from '../utils/hash.js'
 // Importing searching by email function and insert new user function
 import {getUserByEmail, insertNewUser} from '../services/user.service.js'
 import { error } from 'node:console'
-// Importing JWT from jsonwebtoken
-import jwt from 'jsonwebtoken'
+// Importing user token generation function
+import {createUserToken} from '../utils/token.js'
 
 // Creating new router for routes
 const router = express.Router()
@@ -78,8 +78,10 @@ router.post('/login', async (req, res) => {
         return res.status(400).json({message: `Invalid username or Password`})
     }
 
-    // If password is correct, generate a token
-    const token = jwt.sign({id: user.id}, process.env.JWT_SECRET)
+    // const token = jwt.sign({id: user.id}, process.env.JWT_SECRET)
+    
+    // If password is correct, generate a token using new method
+    const token = await createUserToken({id: user.id})
 
     // Returning singed token
     return res.json({token})
