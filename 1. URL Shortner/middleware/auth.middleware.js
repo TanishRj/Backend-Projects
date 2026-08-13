@@ -9,8 +9,6 @@ import {validateUserToken} from '../utils/token.js'
  * @param {import("express").NextFunction} next 
  */
 
-const { error } = require("node:console")
-
 // Creating and exporting Middleware
 export function authenticationMiddleware(req, res, next){
     // Getting authorization header
