@@ -8,7 +8,7 @@ import { usersTable } from '../models/user.model.js'
 import {signupPostRequestBodySchema} from '../validation/request.validation.js' 
 // Importing Hahingmethod from our hash.js file
 import {hashPasswordWithSalt} from '../utils/hash.js'
-// Importing searching by email function
+// Importing searching by email function and insert new user function
 import {getUserByEmail, insertNewUser} from '../services/user.service.js'
 
 // Creating new router for routes
