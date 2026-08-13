@@ -11,8 +11,8 @@ import {validateUserToken} from '../utils/token.js'
 
 const { error } = require("node:console")
 
-// Creating Middleware
-function authenticationMiddleware(req, res, next){
+// Creating and exporting Middleware
+export function authenticationMiddleware(req, res, next){
     // Getting authorization header
     const authHeader = req.headers['authorization']
 
@@ -26,4 +26,12 @@ function authenticationMiddleware(req, res, next){
     // Splitting Bearer and Token
     const [_, token] = authHeader.split(' ')
 
+    // Checking token using imported verification method
+    const payload = validateUserToken(token)
+
+    // Creating a new property on user request which is payload
+    req.user = payload
+
+    // Returning next function
+    next()
 }
