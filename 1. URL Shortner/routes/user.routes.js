@@ -77,8 +77,6 @@ router.post('/login', async (req, res) => {
     if(user.password !== hashedPassword){
         return res.status(400).json({message: `Invalid username or Password`})
     }
-
-    // const token = jwt.sign({id: user.id}, process.env.JWT_SECRET)
     
     // If password is correct, generate a token using new method
     const token = await createUserToken({id: user.id})
