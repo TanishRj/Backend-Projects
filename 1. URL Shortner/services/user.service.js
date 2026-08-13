@@ -4,7 +4,7 @@ import {db} from '../db/index.js'
 import {usersTable} from '../models/user.model.js'
 
 // Function to check user by email
-export function getUserByEmail(email) {
+export async function getUserByEmail(email) {
     const [existingUser] = await db.select({
         // Selecting id of the user
         id: usersTable.id,

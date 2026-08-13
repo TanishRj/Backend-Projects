@@ -10,7 +10,8 @@ import { eq } from 'drizzle-orm'
 import {signupPostRequestBodySchema} from '../validation/request.validation.js' 
 // Importing Hahingmethod from our hash.js file
 import {hashPasswordWithSalt} from '../utils/hash.js'
-
+// Importing searching by email function
+import {getUserByEmail} from '../services/user.service.js'
 
 // Creating new router for routes
 const router = express.Router()
@@ -29,15 +30,7 @@ router.post('/signup', async (req, res) => {
     // Destructuring details of user from validated result
     const {firstname, lastname, email, password} = validationResult.data
 
-    // Validation for existing user which returns an array
-    const [existingUser] = await db.select({
-        // Selecting id of the user
-        id: usersTable.id
-    })
-    .from(usersTable)
-    // Checking if users email already exists
-    .where(eq(usersTable.email, email))
-
+    const existingUser = getUserByEmail(email)
     // Giving a response if the user already exists
     if (existingUser){
         return res.status(400).json({error: `The user with email ${email} already exists`})
