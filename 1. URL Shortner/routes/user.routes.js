@@ -4,14 +4,12 @@ import express from 'express'
 import { db } from '../db/index.js'
 // Importing users table
 import { usersTable } from '../models/user.model.js'
-// Importing equals to from drizzle orm
-import { eq } from 'drizzle-orm'
 // Importing zod user validation schema
 import {signupPostRequestBodySchema} from '../validation/request.validation.js' 
 // Importing Hahingmethod from our hash.js file
 import {hashPasswordWithSalt} from '../utils/hash.js'
 // Importing searching by email function
-import {getUserByEmail} from '../services/user.service.js'
+import {getUserByEmail, insertNewUser} from '../services/user.service.js'
 
 // Creating new router for routes
 const router = express.Router()
@@ -30,7 +28,9 @@ router.post('/signup', async (req, res) => {
     // Destructuring details of user from validated result
     const {firstname, lastname, email, password} = validationResult.data
 
+    // Checking existing user by the imported function
     const existingUser = getUserByEmail(email)
+
     // Giving a response if the user already exists
     if (existingUser){
         return res.status(400).json({error: `The user with email ${email} already exists`})
@@ -38,6 +38,7 @@ router.post('/signup', async (req, res) => {
 
     // Function returns salt and hashed password
     const {salt, password: hashedPassword} = hashPasswordWithSalt(password)
+    
     // If user does not exists, inserting new one
     const [user] = await db.insert(usersTable).values({
         email,
@@ -49,6 +50,7 @@ router.post('/signup', async (req, res) => {
         // Returning id of the user when inserted using returning
     }).returning({ id: usersTable.id })
 
+    
     // Returning a 201 created response with data as id in json format 
     return res.status(201).json({ data: {userId: user.id}})
 

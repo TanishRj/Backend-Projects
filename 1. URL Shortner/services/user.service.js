@@ -1,3 +1,5 @@
+// Importing eq from drizzle
+import { eq } from 'drizzle-orm'
 // Importing db from index file of db
 import {db} from '../db/index.js'
 // Importing users table from user model 
@@ -18,4 +20,19 @@ export async function getUserByEmail(email) {
 
     // Returns user if exists
     return existingUser
+}
+
+export async function insertNewUser(email, firstname, lastname, salt, hashedPassword) {
+     // If user does not exists, inserting new one
+    const [user] = await db.insert(usersTable).values({
+        email,
+        firstname,
+        lastname,
+        salt,
+        password: hashedPassword,
+
+        // Returning id of the user when inserted using returning
+    }).returning({ id: usersTable.id })
+
+    return user.id
 }
