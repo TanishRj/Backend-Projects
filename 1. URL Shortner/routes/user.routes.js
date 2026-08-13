@@ -4,12 +4,13 @@ import express from 'express'
 import { db } from '../db/index.js'
 // Importing users table
 import { usersTable } from '../models/user.model.js'
-// Importing zod user validation schema
-import {signupPostRequestBodySchema} from '../validation/request.validation.js' 
+// Importing zod user, login validation schema
+import {signupPostRequestBodySchema, loginPostRequestBodySchema} from '../validation/request.validation.js' 
 // Importing Hahingmethod from our hash.js file
 import {hashPasswordWithSalt} from '../utils/hash.js'
 // Importing searching by email function and insert new user function
 import {getUserByEmail, insertNewUser} from '../services/user.service.js'
+import { error } from 'node:console'
 
 // Creating new router for routes
 const router = express.Router()
@@ -48,7 +49,24 @@ router.post('/signup', async (req, res) => {
 })
 
 router.post('/login', async (req, res) => {
-    
+    // Checking email and password using zod
+    const validationResult = await loginPostRequestBodySchema.safeParseAsync(req.body)
+
+    // Checking if any error is returned in validation result
+    if (validationResult.error) {
+        return res.status(400).json({error: validationResult.error})
+    }
+
+    // Getting data from validation 
+    const {email, password} = validationResult.data
+
+    // Checking if user already exists
+    const user = await getUserByEmail(email)
+
+    // Returning response if user exists
+    if (!user){
+        return res.json(404).json({error: `User with email ${email} does not exists`})
+    }
 })
 
 // Exporting default so that it can be called by any name
