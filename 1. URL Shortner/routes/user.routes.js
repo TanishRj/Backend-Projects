@@ -67,7 +67,7 @@ router.post('/login', async (req, res) => {
 
     // Returning response if user exists
     if (!user){
-        return res.json(404).json({error: `User with email ${email} does not exists`})
+        return res.status(404).json({error: `User with email ${email} does not exists`})
     }
 
     // Getting password from validation and salt which is returned by getUserByEmail

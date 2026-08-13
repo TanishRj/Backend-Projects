@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Project Notes/1. URL Shortner/10. Building Login Route with JWT.md",
+                "file": "Project Notes/1. URL Shortner/11. Refactoring JWT Sign and Verify Logic into Functions.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "10. Building Login Route with JWT"
+              "title": "11. Refactoring JWT Sign and Verify Logic into Functions"
             }
           }
         ]
@@ -188,12 +188,16 @@
   },
   "active": "e3edd19fd2cd08ad",
   "lastOpenFiles": [
+    "1. URL Shortner/validation/token.validation.js",
+    "1. URL Shortner/utils/token.js",
+    "Project Notes/1. URL Shortner/10. Building Login Route with JWT.md",
+    "Pasted image 20260814005417.png",
+    "Pasted image 20260814005211.png",
     "Pasted image 20260814005001.png",
     "1. URL Shortner/package.json.676554725",
     "1. URL Shortner/pnpm-lock.yaml.3972701996",
     "1. URL Shortner/_tmp_3956_fa45a73e7b7517c82202221206f5f62c",
     "Project Notes/1. URL Shortner/9. Separating User Logic and Service Modules.md",
-    "Project Notes/1. URL Shortner/10. Building Login Route with JWT.md",
     "Pasted image 20260814001807.png",
     "Pasted image 20260814001730.png",
     "1. URL Shortner/services/user.service.js",
