@@ -27,10 +27,12 @@ router.post('/shorten', async function (req, res) {
     }
     
     // Getting and storing url from url variable
-    const {url} = validationResult.data
+    const {url, code} = validationResult.data
 
-    await db.insert(usersTable).values({
-
+    // Inserting url and code (if given)
+    await db.insert(urlsTable).values({
+        // Inserting the code in table if provided else randomly generated
+        shortCode: code 
     })
 })
 
