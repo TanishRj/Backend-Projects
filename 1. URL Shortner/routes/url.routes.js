@@ -12,12 +12,13 @@ import {nanoid} from 'nanoid'
 import {ensureAuthenticated} from '../middleware/auth.middleware.js'
 // Importing url insertion method from url service file
 import {newUrlInsert} from '../services/url.service.js'
-
+// Importing eq
+import { eq } from 'drizzle-orm'
 
 // creating router from express
 const router = express.Router()
 
-// Creating new post route
+// Creating new POST route for shortening url
 router.post('/shorten', ensureAuthenticated ,async function (req, res) {
     // Validating result
     const validationResult = await shortenPostRequestBodySchema.safeParseAsync(req.body)
@@ -43,6 +44,26 @@ router.post('/shorten', ensureAuthenticated ,async function (req, res) {
     return res.status(201).json(result)
 })
 
+// Creating new GET route for short code to original url
+router.get('/:shortCode', async function (req, res) {
+    // Getting short code from req parameters
+    const code = req.params.shortCode
+
+    // getting URL based in short code
+    const [result] = await db.select({
+        targetURL: urlsTable.targetURL
+    })
+    .from(urlsTable)
+    .where(eq(urlsTable.shortCode, code))
+
+    // If no url found
+    if (!result) {
+        return res.status(404).json({error: 'Invalid URL'})
+    }
+
+    // Redirecting to target URL
+    return res.redirect(result.targetURL)
+})
 
 // Exporting router
 export default router
