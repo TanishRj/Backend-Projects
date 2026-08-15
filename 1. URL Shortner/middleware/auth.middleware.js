@@ -33,3 +33,21 @@ export function authenticationMiddleware(req, res, next){
     // Returning next function
     next()
 }
+
+// Creating JS Doc for req, res and next
+/**
+ * 
+ * @param {import("express").Request} req 
+ * @param {import("express").Response} res 
+ * @param {import("express").NextFunction} next 
+ */
+
+// Creating a middleware to check user is always authenticated
+export function ensureAuthenticated(req, res, next) {
+    if (!req.user || !req.user.id) {
+        return res
+            .status(401)
+            .json({error: `You must be logged in to access this resource`})
+    }
+    next()
+}
