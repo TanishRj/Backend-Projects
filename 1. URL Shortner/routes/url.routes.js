@@ -15,7 +15,7 @@ const router = express.Router()
 // Creating new post route
 router.post('/shorten', async function (req, res) {
     // Making sure user is authenticated
-    const userID = req.user.id
+    const userID = req.user?.id
 
     // Returning response if user id does not exists
     if (!userID) return res.status(401).json({error: `You must be logged in to access this resource`})
@@ -25,7 +25,7 @@ router.post('/shorten', async function (req, res) {
 
     // Checking and giving an returning if any error occurs
     if (validationResult.error) {
-        return res.status(400).json({error: validationResult.error.message})
+        return res.status(400).json({error: validationResult.error.format()})
     }
     
     // Getting and storing url from url variable
