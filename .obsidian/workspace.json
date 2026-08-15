@@ -188,6 +188,11 @@
   },
   "active": "e3edd19fd2cd08ad",
   "lastOpenFiles": [
+    "package.json",
+    "pnpm-lock.yaml",
+    "pnpm-lock.yaml.2270138572",
+    "node_modules",
+    "_tmp_27532_f52f9ca705d71d8f5fc5a15dac616c9f",
     "1. URL Shortner/models/url.model.js",
     "1. URL Shortner/routes/url.routes.js",
     "Project Notes/1. URL Shortner/12. Creating Authentication Middleware.md",
@@ -204,14 +209,9 @@
     "Pasted image 20260814005417.png",
     "Pasted image 20260814005211.png",
     "Pasted image 20260814005001.png",
-    "1. URL Shortner/package.json.676554725",
-    "1. URL Shortner/pnpm-lock.yaml.3972701996",
-    "1. URL Shortner/_tmp_3956_fa45a73e7b7517c82202221206f5f62c",
     "Project Notes/1. URL Shortner/9. Separating User Logic and Service Modules.md",
     "Pasted image 20260814001807.png",
     "Pasted image 20260814001730.png",
-    "1. URL Shortner/services/user.service.js",
-    "1. URL Shortner/services",
     "Project Notes/1. URL Shortner/8. Adding ZOD for Validation.md"
   ]
 }
