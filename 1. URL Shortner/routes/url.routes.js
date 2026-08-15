@@ -12,6 +12,17 @@ router.post('/shorten', async function (req, res) {
 
     // Returning response if user id does not exists
     if (!userID) return res.status(401).json({error: `You must be logged in to access this resource`})
+
+    // Validating result
+    const validationResult = await shortenPostRequestBodySchema.safeParseAsync(req.body)
+
+    // Checking and giving an returning if any error occurs
+    if (validationResult.error) {
+        return res.status(400).json({error: validationResult.error.message})
+    }
+    
+    // Getting and storing url from url variable
+    const {url} = validationResult.data
 })
 
 
