@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Project Notes/1. URL Shortner/12. Creating Authentication Middleware.md",
+                "file": "Project Notes/1. URL Shortner/13. Creating Schema for Shortened URL's.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "12. Creating Authentication Middleware"
+              "title": "13. Creating Schema for Shortened URL's"
             }
           }
         ]
@@ -187,6 +187,8 @@
   },
   "active": "e3edd19fd2cd08ad",
   "lastOpenFiles": [
+    "Project Notes/1. URL Shortner/12. Creating Authentication Middleware.md",
+    "Project Notes/1. URL Shortner/13. Creating Schema for Shortened URL's.md",
     "1. URL Shortner/middleware/auth.middleware.js",
     "1. URL Shortner/middleware",
     "Project Notes/1. URL Shortner/11. Refactoring JWT Sign and Verify Logic into Functions.md",
@@ -208,8 +210,6 @@
     "1. URL Shortner/services/user.service.js",
     "1. URL Shortner/services",
     "1. URL Shortner/utils/hash.js",
-    "1. URL Shortner/utils",
-    "Project Notes/1. URL Shortner/12. Creating Authentication Middleware.md",
     "Project Notes/1. URL Shortner/8. Adding ZOD for Validation.md"
   ]
 }
