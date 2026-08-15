@@ -47,6 +47,13 @@ router.post('/shorten', async function (req, res) {
         shortCode: urlsTable.shortCode,
         targetURL: urlsTable.targetURL
     })
+
+    // Retruning id, shortcode and target url
+    return res.status(201).json({
+        id: result.id,
+        shortCode: result.shortCode,
+        targetURL: result.targetURL
+    })
 })
 
 

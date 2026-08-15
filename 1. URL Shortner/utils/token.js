@@ -1,3 +1,5 @@
+// importing dotenv
+import 'dotenv/config'
 // Importing jwt 
 import jwt from 'jsonwebtoken';
 // Importing zod validation of token
