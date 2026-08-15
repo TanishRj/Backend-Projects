@@ -83,8 +83,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 657.5
   },
   "right": {
     "id": "b2625752d40e6b65",
@@ -188,6 +187,8 @@
   },
   "active": "e3edd19fd2cd08ad",
   "lastOpenFiles": [
+    "Pasted image 20260815164949.png",
+    "Pasted image 20260815164915.png",
     "Project Notes/1. URL Shortner/17. Fetching All Shortened URL's by Logged-In User.md",
     "Project Notes/1. URL Shortner/18. Delete URL with Ownership and Authorization.md",
     "Pasted image 20260815163752.png",
@@ -204,7 +205,6 @@
     "Pasted image 20260815152103.png",
     "Pasted image 20260815152002.png",
     "Pasted image 20260815151907.png",
-    "Pasted image 20260815151737.png",
     "package.json",
     "pnpm-lock.yaml",
     "pnpm-lock.yaml.2270138572",

@@ -12,8 +12,8 @@ import {nanoid} from 'nanoid'
 import {ensureAuthenticated} from '../middleware/auth.middleware.js'
 // Importing url insertion method from url service file
 import {newUrlInsert} from '../services/url.service.js'
-// Importing eq
-import { eq } from 'drizzle-orm'
+// Importing eq and and
+import { and, eq } from 'drizzle-orm'
 
 // creating router from express
 const router = express.Router()
@@ -56,7 +56,17 @@ router.get('/codes', ensureAuthenticated, async function (req, res) {
     return res.status(200).json({ codes })
 })
 
-// Creating a DELETE
+// Creating a DELETE route to delete short code by code id
+router.delete('/:id', ensureAuthenticated, async function (req, res) {
+    // Getting id from url parameter
+    const id = req.params.id
+
+    // Deleting only user assigned codes
+    await db.delete(urlsTable)
+        .where(and(eq(urlsTable.id, id), eq(urlsTable.userId, req.user.id)))
+
+    return res.status(200).json({deleted: true})
+})
 
 // Creating GET route for short code to original url
 router.get('/:shortCode', async function (req, res) {
