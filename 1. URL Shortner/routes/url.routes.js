@@ -1,7 +1,7 @@
 // Importing express
 import express from 'express'
 // importing url validation 
-import {} from '../validation/request.validation.js'
+import {shortenPostRequestBodySchema} from '../validation/request.validation.js'
 // creating router from express
 const router = express.Router()
 
