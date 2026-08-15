@@ -188,6 +188,7 @@
   },
   "active": "e3edd19fd2cd08ad",
   "lastOpenFiles": [
+    "1. URL Shortner/models/url.model.js",
     "1. URL Shortner/routes/url.routes.js",
     "Project Notes/1. URL Shortner/12. Creating Authentication Middleware.md",
     "Project Notes/1. URL Shortner/13. Creating Schema for Shortened URL's.md",
@@ -211,7 +212,6 @@
     "Pasted image 20260814001730.png",
     "1. URL Shortner/services/user.service.js",
     "1. URL Shortner/services",
-    "1. URL Shortner/utils/hash.js",
     "Project Notes/1. URL Shortner/8. Adding ZOD for Validation.md"
   ]
 }

@@ -2,6 +2,11 @@
 import express from 'express'
 // importing url validation 
 import {shortenPostRequestBodySchema} from '../validation/request.validation.js'
+// Importing db to insert url
+import {db} from '../db/index.js'
+// inserting models (tables)
+import {usersTable} from '../models/index.js'
+
 // creating router from express
 const router = express.Router()
 
@@ -23,6 +28,10 @@ router.post('/shorten', async function (req, res) {
     
     // Getting and storing url from url variable
     const {url} = validationResult.data
+
+    await db.insert(usersTable).values({
+        
+    })
 })
 
 
