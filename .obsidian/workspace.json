@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Project Notes/1. URL Shortner/17. Fetching All Shortened URL's by Logged-In User.md",
+                "file": "Project Notes/1. URL Shortner/18. Delete URL with Ownership and Authorization.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "17. Fetching All Shortened URL's by Logged-In User"
+              "title": "18. Delete URL with Ownership and Authorization"
             }
           }
         ]
@@ -83,7 +83,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "b2625752d40e6b65",
@@ -187,8 +188,10 @@
   },
   "active": "e3edd19fd2cd08ad",
   "lastOpenFiles": [
-    "Project Notes/1. URL Shortner/16. Implementing Redirection Logic from Short URL's.md",
     "Project Notes/1. URL Shortner/17. Fetching All Shortened URL's by Logged-In User.md",
+    "Project Notes/1. URL Shortner/18. Delete URL with Ownership and Authorization.md",
+    "Pasted image 20260815163752.png",
+    "Project Notes/1. URL Shortner/16. Implementing Redirection Logic from Short URL's.md",
     "Pasted image 20260815162621.png",
     "Pasted image 20260815162551.png",
     "Pasted image 20260815162428.png",
@@ -202,7 +205,6 @@
     "Pasted image 20260815152002.png",
     "Pasted image 20260815151907.png",
     "Pasted image 20260815151737.png",
-    "Pasted image 20260815151342.png",
     "package.json",
     "pnpm-lock.yaml",
     "pnpm-lock.yaml.2270138572",

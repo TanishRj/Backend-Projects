@@ -18,7 +18,7 @@ import { eq } from 'drizzle-orm'
 // creating router from express
 const router = express.Router()
 
-// Creating new POST route for shortening url
+// Creating POST route for shortening url
 router.post('/shorten', ensureAuthenticated ,async function (req, res) {
     // Validating result
     const validationResult = await shortenPostRequestBodySchema.safeParseAsync(req.body)
@@ -44,7 +44,21 @@ router.post('/shorten', ensureAuthenticated ,async function (req, res) {
     return res.status(201).json(result)
 })
 
-// Creating new GET route for short code to original url
+// Creating a GET route to fetch all shortened urls of current user
+router.get('/codes', ensureAuthenticated, async function (req, res) {
+    // Getting all codes 
+    const codes = await db
+        .select()
+        .from(urlsTable)
+        .where(eq(urlsTable.userId, req.user.id))
+    
+    // Return all codes in JSON
+    return res.status(200).json({ codes })
+})
+
+// Creating a DELETE
+
+// Creating GET route for short code to original url
 router.get('/:shortCode', async function (req, res) {
     // Getting short code from req parameters
     const code = req.params.shortCode
@@ -63,11 +77,6 @@ router.get('/:shortCode', async function (req, res) {
 
     // Redirecting to target URL
     return res.redirect(result.targetURL)
-})
-
-// Creating a new GET route to fetch all shortened urls of current user
-router.get('/codes', ensureAuthenticated, async function (req, res) {
-    
 })
 
 // Exporting router
