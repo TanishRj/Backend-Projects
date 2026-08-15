@@ -65,5 +65,10 @@ router.get('/:shortCode', async function (req, res) {
     return res.redirect(result.targetURL)
 })
 
+// Creating a new GET route to fetch all shortened urls of current user
+router.get('/codes', ensureAuthenticated, async function (req, res) {
+    
+})
+
 // Exporting router
 export default router
