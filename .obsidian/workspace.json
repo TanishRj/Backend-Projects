@@ -188,6 +188,8 @@
   },
   "active": "e3edd19fd2cd08ad",
   "lastOpenFiles": [
+    "url-shortner/node_modules/@types",
+    "url-shortner/_tmp_8996_43819666d613c26511c5222dcb1422f5",
     "url-shortner/validation/token.validation.js",
     "url-shortner/validation/request.validation.js",
     "url-shortner/utils/token.js",
@@ -196,9 +198,7 @@
     "url-shortner/services/url.service.js",
     "url-shortner/routes/user.routes.js",
     "url-shortner/routes/url.routes.js",
-    "url-shortner/node_modules/@types",
     "url-shortner/models/user.model.js",
-    "url-shortner/db/index.js",
     "Project Notes/1. URL Shortner/10. Building Login Route with JWT.md",
     "Project Notes/1. URL Shortner/4. Configuring PostgreSQL with Docker.md",
     "Project Notes/1. URL Shortner/3. Clean Express Server Setup.md",
