@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Project Notes/1. URL Shortner/10. Building Login Route with JWT.md",
+                "file": "Project Notes/1. URL Shortner/4. Configuring PostgreSQL with Docker.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "10. Building Login Route with JWT"
+              "title": "4. Configuring PostgreSQL with Docker"
             }
           }
         ]
@@ -188,6 +188,7 @@
   },
   "active": "e3edd19fd2cd08ad",
   "lastOpenFiles": [
+    "Project Notes/1. URL Shortner/10. Building Login Route with JWT.md",
     "Project Notes/1. URL Shortner/4. Configuring PostgreSQL with Docker.md",
     "Project Notes/1. URL Shortner/3. Clean Express Server Setup.md",
     "Project Notes/1. URL Shortner/18. Delete URL with Ownership and Authorization.md",
@@ -218,7 +219,6 @@
     "1. URL Shortner/middleware/auth.middleware.js",
     "1. URL Shortner/middleware",
     "Project Notes/1. URL Shortner/11. Refactoring JWT Sign and Verify Logic into Functions.md",
-    "Project Notes/1. URL Shortner/10. Building Login Route with JWT.md",
     "Project Notes/1. URL Shortner/9. Separating User Logic and Service Modules.md",
     "Project Notes/1. URL Shortner/8. Adding ZOD for Validation.md"
   ]
