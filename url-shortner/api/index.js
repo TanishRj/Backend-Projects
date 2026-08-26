@@ -11,7 +11,9 @@ app.use(authenticationMiddleware)
 
 app.get('/', (req, res) => {
     res.json({
-        status: 'API Health OK'
+        status: 'API Health OK ✅',
+        Madeby: '❄️ Tanish Choudhary ❄️',
+        Github: '🌀 https://github.com/TanishRj 🌀',
     })
 })
 

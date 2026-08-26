@@ -188,6 +188,7 @@
   },
   "active": "e3edd19fd2cd08ad",
   "lastOpenFiles": [
+    "url-shortner/Live Health API .png",
     "url-shortner/server.js",
     "url-shortner/node_modules/@types",
     "url-shortner/node_modules",
@@ -198,7 +199,6 @@
     "url-shortner/utils/token.js",
     "url-shortner/utils/hash.js",
     "url-shortner/services/user.service.js",
-    "url-shortner/services/url.service.js",
     "Project Notes/1. URL Shortner/10. Building Login Route with JWT.md",
     "Project Notes/1. URL Shortner/4. Configuring PostgreSQL with Docker.md",
     "Project Notes/1. URL Shortner/3. Clean Express Server Setup.md",
