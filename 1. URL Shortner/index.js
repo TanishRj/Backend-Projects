@@ -8,8 +8,10 @@ const app = express()
 app.use(express.json())
 app.use(authenticationMiddleware)
 
-app.get('/', async (req, res) => {
-    return res.json({ status: 'API Health OK' })
+app.get('/', (req, res) => {
+    res.json({
+        status: 'API Health OK'
+    })
 })
 
 app.use('/user', userRouter)
