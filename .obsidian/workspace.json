@@ -188,6 +188,9 @@
   },
   "active": "e3edd19fd2cd08ad",
   "lastOpenFiles": [
+    "1. URL Shortner/vercel.json",
+    "1. URL Shortner/api/index.js",
+    "1. URL Shortner/api",
     "1. URL Shortner/_tmp_26752_99bcc285789cd90c0b4c50cd775d9b59",
     "Project Notes/1. URL Shortner/10. Building Login Route with JWT.md",
     "Project Notes/1. URL Shortner/4. Configuring PostgreSQL with Docker.md",
@@ -215,10 +218,7 @@
     "node_modules",
     "_tmp_27532_f52f9ca705d71d8f5fc5a15dac616c9f",
     "1. URL Shortner/models/url.model.js",
-    "1. URL Shortner/routes/url.routes.js",
     "Project Notes/1. URL Shortner/12. Creating Authentication Middleware.md",
-    "1. URL Shortner/middleware/auth.middleware.js",
-    "1. URL Shortner/middleware",
     "Project Notes/1. URL Shortner/11. Refactoring JWT Sign and Verify Logic into Functions.md",
     "Project Notes/1. URL Shortner/9. Separating User Logic and Service Modules.md",
     "Project Notes/1. URL Shortner/8. Adding ZOD for Validation.md"

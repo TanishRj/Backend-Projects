@@ -1,7 +1,8 @@
 import express from 'express'
-import { authenticationMiddleware } from './middleware/auth.middleware.js'
-import userRouter from './routes/user.routes.js'
-import urlRouter from './routes/url.routes.js'
+
+import { authenticationMiddleware } from '../middleware/auth.middleware.js'
+import userRouter from '../routes/user.routes.js'
+import urlRouter from '../routes/url.routes.js'
 
 const app = express()
 
