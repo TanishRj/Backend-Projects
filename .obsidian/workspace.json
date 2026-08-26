@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Project Notes/1. URL Shortner/18. Delete URL with Ownership and Authorization.md",
+                "file": "Project Notes/1. URL Shortner/10. Building Login Route with JWT.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "18. Delete URL with Ownership and Authorization"
+              "title": "10. Building Login Route with JWT"
             }
           }
         ]
@@ -55,7 +55,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "env",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -79,7 +79,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -187,10 +188,12 @@
   },
   "active": "e3edd19fd2cd08ad",
   "lastOpenFiles": [
+    "Project Notes/1. URL Shortner/4. Configuring PostgreSQL with Docker.md",
+    "Project Notes/1. URL Shortner/3. Clean Express Server Setup.md",
+    "Project Notes/1. URL Shortner/18. Delete URL with Ownership and Authorization.md",
     "Pasted image 20260815164949.png",
     "Pasted image 20260815164915.png",
     "Project Notes/1. URL Shortner/17. Fetching All Shortened URL's by Logged-In User.md",
-    "Project Notes/1. URL Shortner/18. Delete URL with Ownership and Authorization.md",
     "Pasted image 20260815163752.png",
     "Project Notes/1. URL Shortner/16. Implementing Redirection Logic from Short URL's.md",
     "Pasted image 20260815162621.png",
@@ -204,7 +207,6 @@
     "Project Notes/1. URL Shortner/13. Creating Schema for Shortened URL's.md",
     "Pasted image 20260815152103.png",
     "Pasted image 20260815152002.png",
-    "Pasted image 20260815151907.png",
     "package.json",
     "pnpm-lock.yaml",
     "pnpm-lock.yaml.2270138572",
