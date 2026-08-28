@@ -79,8 +79,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -186,7 +185,7 @@
       "bases:Create new base": false
     }
   },
-  "active": "e3edd19fd2cd08ad",
+  "active": "6f9a298d6e63d43c",
   "lastOpenFiles": [
     "url-shortner/Live Health API .png",
     "url-shortner/server.js",
