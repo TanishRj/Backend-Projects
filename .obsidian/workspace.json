@@ -1,24 +1,20 @@
 {
   "main": {
-    "id": "e98f5508795a4e2d",
+    "id": "0b8d9656a7117716",
     "type": "split",
     "children": [
       {
-        "id": "7fa3754c15dca846",
+        "id": "959062d0adb2c40b",
         "type": "tabs",
         "children": [
           {
-            "id": "e3edd19fd2cd08ad",
+            "id": "ed8cd911039e62b7",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Project Notes/1. URL Shortner/4. Configuring PostgreSQL with Docker.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "4. Configuring PostgreSQL with Docker"
+              "title": "New tab"
             }
           }
         ]
@@ -27,15 +23,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "d70561131a69232e",
+    "id": "54481f2600afa22f",
     "type": "split",
     "children": [
       {
-        "id": "82ccf6b4e31a44c5",
+        "id": "8e6eb682b6a04f4e",
         "type": "tabs",
         "children": [
           {
-            "id": "6f9a298d6e63d43c",
+            "id": "f4f4a8d27d572c0c",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -50,12 +46,12 @@
             }
           },
           {
-            "id": "bb5173af015f1e7a",
+            "id": "1465ccd22d2a238f",
             "type": "leaf",
             "state": {
               "type": "search",
               "state": {
-                "query": "env",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -67,7 +63,7 @@
             }
           },
           {
-            "id": "aa769b601ad9f576",
+            "id": "9e6124733007640d",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -83,18 +79,18 @@
       }
     ],
     "direction": "horizontal",
-    "width": 439.1000061035156
+    "width": 300
   },
   "right": {
-    "id": "b2625752d40e6b65",
+    "id": "46dbc52d17a03e21",
     "type": "split",
     "children": [
       {
-        "id": "064d15e6def85b3a",
+        "id": "1ae4dc82ac8d11e6",
         "type": "tabs",
         "children": [
           {
-            "id": "858ccf3d8d20c41d",
+            "id": "6a7f0004de2393eb",
             "type": "leaf",
             "state": {
               "type": "backlink",
@@ -112,7 +108,7 @@
             }
           },
           {
-            "id": "d6d52c48d5aa4404",
+            "id": "a3b90dbd07d917f6",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
@@ -125,7 +121,7 @@
             }
           },
           {
-            "id": "8ea0a00f6d0a0ece",
+            "id": "1ba69751a97fa71e",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -140,7 +136,7 @@
             }
           },
           {
-            "id": "759b1df2974d9c22",
+            "id": "3f7da55775bde8e7",
             "type": "leaf",
             "state": {
               "type": "all-properties",
@@ -154,7 +150,7 @@
             }
           },
           {
-            "id": "35013642ab90a98d",
+            "id": "73edbf16741a637a",
             "type": "leaf",
             "state": {
               "type": "outline",
@@ -185,41 +181,6 @@
       "bases:Create new base": false
     }
   },
-  "active": "6f9a298d6e63d43c",
-  "lastOpenFiles": [
-    "url-shortner/Live Health API .png",
-    "url-shortner/server.js",
-    "url-shortner/node_modules/@types",
-    "url-shortner/node_modules",
-    "url-shortner/_tmp_18428_66107a1bba78c257ef7c63957d3cded5",
-    "url-shortner/_tmp_8996_43819666d613c26511c5222dcb1422f5",
-    "url-shortner/validation/token.validation.js",
-    "url-shortner/validation/request.validation.js",
-    "url-shortner/utils/token.js",
-    "url-shortner/utils/hash.js",
-    "url-shortner/services/user.service.js",
-    "Project Notes/1. URL Shortner/10. Building Login Route with JWT.md",
-    "Project Notes/1. URL Shortner/4. Configuring PostgreSQL with Docker.md",
-    "Project Notes/1. URL Shortner/3. Clean Express Server Setup.md",
-    "Project Notes/1. URL Shortner/18. Delete URL with Ownership and Authorization.md",
-    "Pasted image 20260815164949.png",
-    "Pasted image 20260815164915.png",
-    "Project Notes/1. URL Shortner/17. Fetching All Shortened URL's by Logged-In User.md",
-    "Pasted image 20260815163752.png",
-    "Project Notes/1. URL Shortner/16. Implementing Redirection Logic from Short URL's.md",
-    "Pasted image 20260815162621.png",
-    "Pasted image 20260815162551.png",
-    "Pasted image 20260815162428.png",
-    "Project Notes/1. URL Shortner/15. Refactoring URL Insertion Logic to New Service.md",
-    "Pasted image 20260815160532.png",
-    "Pasted image 20260815160459.png",
-    "Project Notes/1. URL Shortner/14. Refactoring URL Extraction Logic.md",
-    "Project Notes/1. URL Shortner/13. Creating Schema for Shortened URL's.md",
-    "Pasted image 20260815152103.png",
-    "Pasted image 20260815152002.png",
-    "Project Notes/1. URL Shortner/12. Creating Authentication Middleware.md",
-    "Project Notes/1. URL Shortner/11. Refactoring JWT Sign and Verify Logic into Functions.md",
-    "Project Notes/1. URL Shortner/9. Separating User Logic and Service Modules.md",
-    "Project Notes/1. URL Shortner/8. Adding ZOD for Validation.md"
-  ]
+  "active": "ed8cd911039e62b7",
+  "lastOpenFiles": []
 }
