@@ -4,8 +4,13 @@ dotenv.config({
     path: "./.env"
 })
 
-let myusername = process.env.MY_USERNAME;
+const app = express()
+const port = 3000
 
-console.log(process.env.MY_USERNAME);
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
 
-console.log("Start of New Backend Project - Base Camp");
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
