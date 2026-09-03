@@ -8,6 +8,7 @@ dotenv.config({
 
 // Creating new app from express
 const app = express()
+// Creating port from env, else 3000
 const port = 3000
 
 app.get('/', (req, res) => {
