@@ -22,3 +22,6 @@ class ApiError extends Error {
         }
     }
 }
+
+// Exporting Api error class
+export {ApiError}
