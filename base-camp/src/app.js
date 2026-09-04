@@ -26,6 +26,12 @@ app.use(cors({
     allowedHeaders: ["Content-Type", "Authorization"]
 }))
 
+// Importing the routes
+import healthCheckRouter from "./routes/healthcheck.routes.js"
+
+// Registering routes
+app.use("/api/v1/healthcheck", healthCheckRouter)
+
 // Creating a GET request which sends some responds if requested 
 app.get('/', (req, res) => {
 // Sending server response as API Health OK
