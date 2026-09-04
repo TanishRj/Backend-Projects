@@ -5,7 +5,9 @@ import {ApiResponse} from "../utils/api-response.js"
 const healthCheck = (req, res) => {
     // Wrapping into try catch
     try {
-        res.status(200).json()
+        res.status(200).json(
+            
+        )
     } catch (error) {
         
     }
