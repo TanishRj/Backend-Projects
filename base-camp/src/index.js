@@ -20,5 +20,6 @@ connectDB()
 })
   // Catch error and exit process
   .catch((err) => {
-    
+    console.error("MongoDB connection error", err);
+    process.exit(1)
   })
