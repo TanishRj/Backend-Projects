@@ -42,6 +42,16 @@ const userSchema = new Schema({
     },
 
     // Storing Password
+    password: {
+        type: String,
+        required: [true, "Password is required"],
+    },
+
+    // Checking if email is verified or not
+    isEmailVerified: {
+        type: Boolean,
+        default: false
+    },
 })
 
 // Exporting user schema to model so we can use it
