@@ -1,7 +1,7 @@
 // Importing mongoose and schema
 import mongoose, { Schema } from "mongoose";
 
-// Creating new userschema using Schema object
+// Creating new userschema using Schema object to define fields
 const userSchema = new Schema({})
 
 // Exporting user schema to model so we can use it
