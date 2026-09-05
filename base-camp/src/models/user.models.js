@@ -30,7 +30,18 @@ const userSchema = new Schema({
     email: {
         type: String,
         required: true,
-    }
+        unique: true,
+        lowercase: true,
+        trim: true
+    },
+
+    // Storing full name
+    fullName: {
+        type: String,
+        trim: true
+    },
+
+    // Storing Password
 })
 
 // Exporting user schema to model so we can use it
