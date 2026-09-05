@@ -24,10 +24,13 @@ const userSchema = new Schema({
         lowercase: true,
         trim: true,
         index: true
-    }
+    },
 
     // Storing Email
-    
+    email: {
+        type: String,
+        required: true,
+    }
 })
 
 // Exporting user schema to model so we can use it
