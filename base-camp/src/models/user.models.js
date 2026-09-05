@@ -1,6 +1,9 @@
 // Importing mongoose and schema
 import mongoose, { Schema } from "mongoose";
 
+// Importing bcrypt
+import bcrypt from "bcrypt"
+
 // Creating new userschema using Schema object to define fields
 const userSchema = new Schema({
     // Storing avatar image url and local store path
@@ -52,7 +55,46 @@ const userSchema = new Schema({
         type: Boolean,
         default: false
     },
+    
+    // Storing refresh Token
+    refreshToken: {
+        type: String
+    },
+
+    // Forgot Password Token
+    forgotPasswordToken: {
+        type: String
+    },
+
+    // Forgot Password Expiry
+    forgotPasswordExpiry: {
+        type: Date
+    },
+
+    // Email verification token
+    emailVerificationToken: {
+        type: String
+    },
+
+    // Email verification expiry
+    emailVerificationExpiry: {
+        type: Date
+    },
+}, {
+    timestamps: true
+},
+)
+
+// Hashing password
+// Method before exporting using pre hook when save operation is performed
+userSchema.pre("save", async function(next){
+    // Running hashing only if password field is modified (saving 1st time and changing password)
+    if(!this.isModified("password")) return next()
+    // Hashing with 10 rounds and overwriting existing password
+    this.password = await bcrypt.hash(this.password, 10)
+    next()
 })
+
 
 // Exporting user schema to model so we can use it
 export const User = mongoose.model("User", userSchema)
