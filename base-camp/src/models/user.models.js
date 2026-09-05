@@ -11,10 +11,23 @@ const userSchema = new Schema({
         },
         // if avatar not provided by user
         default: {
-            url: ``,
+            url: `https://i0.wp.com/picjumbo.com/wp-content/uploads/sunset-wallpaper-free-image.jpeg`,
             localPath: ""
         }
+    },
+    
+    // Storing Username with indexing as true
+    username: {
+        type: String,
+        required: true,
+        unique: true,
+        lowercase: true,
+        trim: true,
+        index: true
     }
+
+    // Storing Email
+    
 })
 
 // Exporting user schema to model so we can use it
