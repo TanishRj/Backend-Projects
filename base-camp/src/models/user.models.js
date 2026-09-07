@@ -4,6 +4,9 @@ import mongoose, { Schema } from "mongoose";
 // Importing bcrypt
 import bcrypt from "bcrypt"
 
+// Importing jwt from jsonwebtoken
+import jwt from "jsonwebtoken"
+
 // Creating new userschema using Schema object to define fields
 const userSchema = new Schema({
     // Storing avatar image url and local store path
@@ -103,7 +106,7 @@ userSchema.methods.isPasswordCorrect = async function (password) {
 
 // Method to generate access token
 userSchema.methods.generateAccessToken = function () {
-    
+    JsonWebTokenError.si
 }
 
 // Exporting user schema to model so we can use it
