@@ -120,7 +120,9 @@ userSchema.methods.generateAccessToken = function () {
 }
 
 // Method to generate refresh token
-
+userSchema.methods.generateRefreshToken = function(){
+    
+}
 
 // Exporting user schema to model so we can use it
 export const User = mongoose.model("User", userSchema)
