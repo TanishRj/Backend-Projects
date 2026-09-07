@@ -101,5 +101,7 @@ userSchema.methods.isPasswordCorrect = async function (password) {
     return await bcrypt.compare(password, this.password)
 }
 
+// Method to generate access token
+
 // Exporting user schema to model so we can use it
 export const User = mongoose.model("User", userSchema)
