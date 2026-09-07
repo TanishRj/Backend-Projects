@@ -7,6 +7,9 @@ import bcrypt from "bcrypt"
 // Importing jwt from jsonwebtoken
 import jwt from "jsonwebtoken"
 
+// Importing Crypto
+import crypto from "node:crypto"
+
 // Creating new userschema using Schema object to define fields
 const userSchema = new Schema({
     // Storing avatar image url and local store path
@@ -130,7 +133,24 @@ userSchema.methods.generateRefreshToken = function(){
         // Secret
         process.env.REFRESH_TOKEN_SECRET,
         {expiresIn: process.env.REFRESH_TOKEN_EXPIRY}
-)
+    )
+}
+
+// Method to generate temp token
+userSchema.methods.generateTemporaryToken = function () {
+    // Creating random unhashed string
+    const unHashedToken = crypto.randomBytes(20).toString("hex")
+
+    // hashing token
+    const hashedToken = crypto
+            .createHash("sha256")
+            .update(unHashedToken)
+            .digest("hex")
+    
+    // Generating Token Expiry (20min)
+    const tokenExpiry = Date.now() + (20*60*1000)
+    // Returning all 
+    return (unHashedToken, hashedToken, tokenExpiry)
 }
 
 // Exporting user schema to model so we can use it
