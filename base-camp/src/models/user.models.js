@@ -106,7 +106,17 @@ userSchema.methods.isPasswordCorrect = async function (password) {
 
 // Method to generate access token
 userSchema.methods.generateAccessToken = function () {
-    JsonWebTokenError.si
+    // Generate and return token using jwt sign (payload)
+    return jwt.sign({
+        _id: this._id,
+        email: this.email,
+        username: this.username
+    },
+    // Secret and expiry
+    process.env.ACCESS_TOKEN_SECRET,
+    {expiresIn: process.env.ACCESS_TOKEN_EXPIRY}
+    
+)
 }
 
 // Exporting user schema to model so we can use it
