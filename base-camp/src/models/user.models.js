@@ -121,9 +121,15 @@ userSchema.methods.generateAccessToken = function () {
 
 // Method to generate refresh token
 userSchema.methods.generateRefreshToken = function(){
-    jwt.sign({
-        
-    })
+    jwt.sign(
+        // Payload
+        {
+            _id: this._id,
+        },
+        // Secret
+        process.env.REFRESH_TOKEN_SECRET,
+        {expiresIn: process.env.REFRESH_TOKEN_EXPIRY}
+)
 }
 
 // Exporting user schema to model so we can use it
