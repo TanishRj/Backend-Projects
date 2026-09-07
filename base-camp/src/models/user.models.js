@@ -95,6 +95,11 @@ userSchema.pre("save", async function(next){
     next()
 })
 
+// New method to check if user and stored password hashes are same
+userSchema.methods.isPasswordCorrect = async function (password) {
+    // Comparing given and store password using compare also returning the same
+    return await bcrypt.compare(password, this.password)
+}
 
 // Exporting user schema to model so we can use it
 export const User = mongoose.model("User", userSchema)
