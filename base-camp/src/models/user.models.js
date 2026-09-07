@@ -106,7 +106,7 @@ userSchema.methods.isPasswordCorrect = async function (password) {
 
 // Method to generate access token
 userSchema.methods.generateAccessToken = function () {
-    // Generate and return token using jwt sign (payload)
+    // Generate and return token access using jwt sign (payload)
     return jwt.sign({
         _id: this._id,
         email: this.email,
@@ -121,10 +121,11 @@ userSchema.methods.generateAccessToken = function () {
 
 // Method to generate refresh token
 userSchema.methods.generateRefreshToken = function(){
-    jwt.sign(
+    // Generate and return refresh token using jwt sign (payload)
+    return jwt.sign(
         // Payload
         {
-            _id: this._id,
+            _id: this._id, 
         },
         // Secret
         process.env.REFRESH_TOKEN_SECRET,
