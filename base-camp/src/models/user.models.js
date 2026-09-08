@@ -150,7 +150,7 @@ userSchema.methods.generateTemporaryToken = function () {
     // Generating Token Expiry (20min)
     const tokenExpiry = Date.now() + (20*60*1000)
     // Returning all 
-    return (unHashedToken, hashedToken, tokenExpiry)
+    return {unHashedToken, hashedToken, tokenExpiry}
 }
 
 // Exporting user schema to model so we can use it
