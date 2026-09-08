@@ -6,10 +6,11 @@ import nodemailer from "nodemailer"
 // Creating mail sending method 
 const sendEmail = async (options) => {
     // Creating mail gen content for default branding
-    new Mailgen({
+    const mailGenerator = new Mailgen({
         theme: "default",
         product: {
-            
+            name: "Task Manager by Tanish",
+            link: "https://taskmgr.com"
         }
     })
 
