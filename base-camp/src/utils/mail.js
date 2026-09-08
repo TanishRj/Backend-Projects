@@ -1,6 +1,10 @@
 // importing mailgen
 import Mailgen from "mailgen";
 
+// Creating mail sending method 
+
+
+
 // Creating email verification email template which will take username and verification url
 const emailVerificationMailgenContent = (username, verificationUrl) => {
     return {
