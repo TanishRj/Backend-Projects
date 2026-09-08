@@ -6,7 +6,12 @@ import nodemailer from "nodemailer"
 // Creating mail sending method 
 const sendEmail = async (options) => {
     // Creating mail gen content for default branding
-    
+    new Mailgen({
+        theme: "default",
+        product: {
+            
+        }
+    })
 
 }
 
