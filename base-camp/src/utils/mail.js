@@ -20,7 +20,7 @@ const sendEmail = async (options) => {
     // Generating mail with supports HTML
     const emailHtml = mailGenerator.generate(options.mailgenContent)
     
-    // Creating Mail transporter (SMTP) object
+    // Creating Mail transporter (SMTP Connection Establish) object
     const transporter = nodemailer.createTransport({
         host: process.env.MAILTRAP_SMTP_HOST,
         port: process.env.MAILTRAP_SMTP_PORT,
@@ -29,6 +29,22 @@ const sendEmail = async (options) => {
             pass: process.env.MAILTRAP_SMTP_PASS,
         }
     })
+
+    // Email Information
+    const mail = {
+        from: "mail.taskmanager@example.com,",
+        to: options.email,
+        subject: options.subject,
+        text: emailTextual,
+        html: emailHtml
+    }
+
+    // Sending email
+    try {
+        await transporter.sendMail(mail)
+    } catch (error) {
+        console.error("Email Service Failed", error)
+    }
 }
 
 
@@ -70,8 +86,9 @@ const forgotPasswordMailgenContent = (username, passwordResetUrl) => {
     }
 }
 
-// Exporting both email templates
+// Exporting both email templates and send email
 export {
     emailVerificationMailgenContent,
-    forgotPasswordMailgenContent
+    forgotPasswordMailgenContent,
+    sendEmail
 }
