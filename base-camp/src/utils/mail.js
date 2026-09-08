@@ -1,6 +1,7 @@
 // importing mailgen
 import Mailgen from "mailgen";
 // Importing nodemailer for sending email
+import nodemailer from "nodemailer"
 
 // Creating mail sending method 
 
