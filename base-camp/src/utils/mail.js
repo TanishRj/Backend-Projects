@@ -14,6 +14,21 @@ const sendEmail = async (options) => {
         }
     })
 
+    // Generating mail based on some options provided (Does not supports HTML)
+    const emailTextual = mailGenerator.generatePlaintext(options.mailgenContent)
+    
+    // Generating mail with supports HTML
+    const emailHtml = mailGenerator.generate(options.mailgenContent)
+    
+    // Creating Mail transporter (SMTP) object
+    const transporter = nodemailer.createTransport({
+        host: process.env.MAILTRAP_SMTP_HOST,
+        port: process.env.MAILTRAP_SMTP_PORT,
+        auth: {
+            user: process.env.MAILTRAP_SMTP_USER,
+            pass: process.env.MAILTRAP_SMTP_PASS,
+        }
+    })
 }
 
 
