@@ -106,7 +106,7 @@ const registerUser = asyncHandler(async (req, res) => {
         )
 })
 
-// Exporting register user method
+// Exporting register user 
 export {
     registerUser
 }
