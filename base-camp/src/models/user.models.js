@@ -93,12 +93,11 @@ const userSchema = new Schema({
 
 // Hashing password
 // Method before exporting using pre hook when save operation is performed
-userSchema.pre("save", async function(next){
+userSchema.pre("save", async function(){
     // Running hashing only if password field is modified (saving 1st time and changing password)
-    if(!this.isModified("password")) return next()
+    if(!this.isModified("password")) return
     // Hashing with 10 rounds and overwriting existing password
     this.password = await bcrypt.hash(this.password, 10)
-    next()
 })
 
 // New method to check if user and stored password hashes are same
