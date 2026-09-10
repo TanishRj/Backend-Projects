@@ -34,7 +34,7 @@ import authRouter from "./routes/auth.routes.js"
 
 // Registering routes
 app.use("/api/v1/healthcheck", healthCheckRouter)
-app.use("/api/v1/register", authRouter)
+app.use("/api/v1/auth", authRouter)
 
 // Creating a GET request which sends some responds if requested 
 app.get('/', (req, res) => {
