@@ -26,10 +26,11 @@ app.use(cors({
     allowedHeaders: ["Content-Type", "Authorization"]
 }))
 
-// Importing healthcheck route
+// Importing healthcheck router
 import healthCheckRouter from "./routes/healthcheck.routes.js"
 
-// Importing register user route
+// Importing register user router
+import authRouter from
 
 // Registering routes
 app.use("/api/v1/healthcheck", healthCheckRouter)
