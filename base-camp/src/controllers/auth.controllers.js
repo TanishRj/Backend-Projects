@@ -106,6 +106,11 @@ const registerUser = asyncHandler(async (req, res) => {
         )
 })
 
+// Creating login using async method handled by asyncHandler
+const login = asyncHandler(async (req, res) => {
+    
+})
+
 // Exporting register user 
 export {
     registerUser
