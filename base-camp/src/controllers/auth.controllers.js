@@ -109,6 +109,7 @@ const registerUser = asyncHandler(async (req, res) => {
 // Creating login using async method handled by asyncHandler
 const login = asyncHandler(async (req, res) => {
     // Request email, username and password from request body
+    const {email, password, username} = req.body
 })
 
 // Exporting register user 
