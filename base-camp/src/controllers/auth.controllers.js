@@ -110,6 +110,8 @@ const registerUser = asyncHandler(async (req, res) => {
 const login = asyncHandler(async (req, res) => {
     // Request email, username and password from request body
     const {email, password, username} = req.body
+
+    if
 })
 
 // Exporting register user 
