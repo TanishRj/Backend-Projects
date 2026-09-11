@@ -8,6 +8,7 @@ import cors from "cors"
 const app = express()
 
 // Importing cookie parser
+import cookieParser from "cookie-parser"
 
 // Middlewares 
 app.use(express.json({limit: "16kb"})) // Anybody can send json data with limit
