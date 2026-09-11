@@ -17,6 +17,8 @@ app.use(express.urlencoded({extended: true, limit: "16kb"}))
 // Static asset to be viewed publically
 app.use(express.static("public"))
 
+
+
 // Cors Configuration
 app.use(cors({
     // Take origin value from env and split it from ',' , else take vite http
