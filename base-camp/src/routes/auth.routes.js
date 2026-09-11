@@ -2,7 +2,7 @@
 import { Router } from "express";
 
 // Importing register user controller
-import {registerUser} from "../controllers/auth.controllers.js"
+import {registerUser, login} from "../controllers/auth.controllers.js"
 
 // Importing validate middleware
 import {validate} from  "../middlewares/validator.middleware.js"
@@ -18,6 +18,9 @@ const router = Router()
 // 2. Give errors to validate middleware to handle them
 // 3. Then pass the errors if present else go to next() i.e. registerUser Route
 router.route("/register").post(userRegisterValidator(), validate, registerUser)
+
+// Logging-in route
+router.route("/login").post(login)
 
 // Exporting Router
 export default router

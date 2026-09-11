@@ -111,9 +111,62 @@ const login = asyncHandler(async (req, res) => {
     // Request email, username and password from request body
     const {email, password, username} = req.body
 
-    if(!username && !email){
-        
+    // If no username and email exists
+    if(!email){
+        throw new ApiError(400, "Email is required")
     }
+
+    // Finding one user based on email from database model
+    const user = await User.findOne({ email })
+
+    // If no matching email found or wrong email found
+    if(!user){
+        throw new ApiError(400, "Email is not Registered or wrong email")
+    }
+
+    // Accessing methods granted to user 
+    // Checking for password validation
+    const isPasswordValid = await user.isPasswordCorrect(password)
+
+    // Sending api error if password is not valid
+    if(!isPasswordValid){
+        throw new ApiError(400, "Wrong email or password")
+    }
+
+    // Generating tokens
+    const {accessToken, refreshToken} = await generateAccessAndRefreshTokens(user._id)
+
+    // Sending response to logged in user and removing fields which are not required
+    const loggedInUser = await User.findById(user._id).select(
+        "-password -refreshToken -emailVerificationToken -emailVerificationExpiry"
+    )
+
+    // Setting cookie options
+    const options = {
+        // Secure cookies
+        httpOnly: true,
+        secure: true
+    }
+
+    // Sending the response and setting the cookies
+    return res
+        .status(200)
+        // Setting cookies
+        .cookie("accessToken", accessToken, options)
+        .cookie("refreshToken", refreshToken, options)
+        // Sending new api response with data
+        .json(
+            new ApiResponse(
+                200,
+                {
+                    // Sending data with access and refresh tokens
+                    user: loggedInUser,
+                    accessToken,
+                    refreshToken
+                },
+                "User logged in successfully"
+            )
+        )
 })
 
 // Exporting register user 
