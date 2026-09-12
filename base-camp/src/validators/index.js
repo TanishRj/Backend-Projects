@@ -47,6 +47,9 @@ const userRegisterValidator = () => {
 }
 
 // Creating new method for user login validation 
+const userLoginValidator = () => {
+    
+}
 
 // Exporting method
 export {
