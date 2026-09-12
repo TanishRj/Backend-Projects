@@ -64,5 +64,6 @@ const userLoginValidator = () => {
 
 // Exporting method
 export {
-    userRegisterValidator
+    userRegisterValidator,
+    userLoginValidator
 }
