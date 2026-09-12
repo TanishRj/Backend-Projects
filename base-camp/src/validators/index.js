@@ -55,6 +55,10 @@ const userLoginValidator = () => {
             .optional()
             .isEmail()
             .withMessage("Email is invalid"),
+        // Password Validation 
+        body("password")
+            .notEmpty()
+            .withMessage("Password is Required")
     ]
 }
 
