@@ -7,7 +7,7 @@ import {registerUser, login} from "../controllers/auth.controllers.js"
 // Importing validate middleware
 import {validate} from  "../middlewares/validator.middleware.js"
 
-// Importing validator
+// Importing validators
 import {userRegisterValidator, userLoginValidator} from "../validators/index.js"
 
 // Creating a router
