@@ -50,7 +50,11 @@ const userRegisterValidator = () => {
 const userLoginValidator = () => {
     // Returns an array
     return [
-
+        // Email Validation
+        body("email")
+            .optional()
+            .isEmail()
+            .withMessage("Email is invalid"),
     ]
 }
 
