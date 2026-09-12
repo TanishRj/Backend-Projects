@@ -27,8 +27,17 @@ export const verifyJWT = asyncHandler(async(req, res, next) => {
         // Selecting only required field
         const user = await User.findById(decodedToken?._id).select("-password -refreshToken -emailVerificationToken -emailVerificationExpiry")
 
-        
+        // Checking if no user is present
+        if (!user){
+            throw new ApiError(401, "Token is not valid")
+        }
+
+        // Adding user property to the req object
+        req.user = user
+        // Passing it to next method/middleware
+        next()
+    // If any error occurs
     } catch (error) {
-        
+        throw new ApiError(401, "Unauthorized Request")
     }
 })
