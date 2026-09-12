@@ -7,8 +7,8 @@ import {registerUser, login} from "../controllers/auth.controllers.js"
 // Importing validate middleware
 import {validate} from  "../middlewares/validator.middleware.js"
 
-// Importing validation
-import {userRegisterValidator} from "../validators/index.js"
+// Importing validator
+import {userRegisterValidator, userLoginValidator} from "../validators/index.js"
 
 // Creating a router
 const router = Router()
@@ -18,6 +18,9 @@ const router = Router()
 // 2. Give errors to validate middleware to handle them
 // 3. Then pass the errors if present else go to next() i.e. registerUser Route
 router.route("/register").post(userRegisterValidator(), validate, registerUser)
+
+// Creating post login route to login user with validation and validator
+router.route("/login").post(userRegisterValidator(), validate, login)
 
 // Logging-in route
 router.route("/login").post(login)
