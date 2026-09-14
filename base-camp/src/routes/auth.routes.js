@@ -2,13 +2,16 @@
 import { Router } from "express";
 
 // Importing register user controller
-import {registerUser, login} from "../controllers/auth.controllers.js"
+import {registerUser, login, logoutUser} from "../controllers/auth.controllers.js"
 
 // Importing validate middleware
 import {validate} from  "../middlewares/validator.middleware.js"
 
 // Importing validators
 import {userRegisterValidator, userLoginValidator} from "../validators/index.js"
+
+// Importing verify JWT
+import {verifyJWT} from '../middlewares/auth.middleware.js'
 
 // Creating a router
 const router = Router()
@@ -22,7 +25,8 @@ router.route("/register").post(userRegisterValidator(), validate, registerUser)
 // Creating post login route to login user with validation and validator
 router.route("/login").post(userRegisterValidator(), validate, login)
 
-// Logout user with validate JWT
+// Logout user with validate JWT middleware
+router.route("/logout").post(verifyJWT, logoutUser)
 
 // Exporting Router
 export default router
