@@ -171,9 +171,37 @@ const login = asyncHandler(async (req, res) => {
 
 // Creating secure logout async method
 const logoutUser = asyncHandler(async (req, res) => {
+    // Find user by id and update it
     await User.findByIdAndUpdate(
-        req.user._id
+        req.user._id, 
+        // Update the refresh token to null
+        {
+            $set : {
+                refreshToken: ""
+            }
+        },
+        // Provide us the new user object
+        {
+            new: true
+        }
     )
+
+    // Setting cookies options
+    const options = {
+        httpOnly: true,
+        secure: true
+    }
+
+    // returning response with clearing cookies
+    return res
+        .status(200)
+        // Cookie clearing
+        .clearCookie("accessToken", options)
+        .clearCookie("refreshToken", options)
+        // Sending new api response
+        .json(
+            new ApiResponse(200, {}, "User logged out")
+        )
 })
 
 
