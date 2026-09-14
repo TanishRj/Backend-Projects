@@ -25,6 +25,7 @@ router.route("/register").post(userRegisterValidator(), validate, registerUser)
 // Creating post login route to login user with validation and validator
 router.route("/login").post(userRegisterValidator(), validate, login)
 
+// SECURE ROUTES
 // Logout user with validate JWT middleware
 router.route("/logout").post(verifyJWT, logoutUser)
 

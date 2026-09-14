@@ -171,7 +171,9 @@ const login = asyncHandler(async (req, res) => {
 
 // Creating secure logout async method
 const logoutUser = asyncHandler(async (req, res) => {
-    
+    await User.findByIdAndUpdate(
+        
+    )
 })
 
 
