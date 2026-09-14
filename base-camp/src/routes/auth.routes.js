@@ -22,8 +22,7 @@ router.route("/register").post(userRegisterValidator(), validate, registerUser)
 // Creating post login route to login user with validation and validator
 router.route("/login").post(userRegisterValidator(), validate, login)
 
-// Logging-in route
-router.route("/login").post(login)
+// Logout user with validate JWT
 
 // Exporting Router
 export default router
