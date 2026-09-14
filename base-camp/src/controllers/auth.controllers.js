@@ -170,8 +170,8 @@ const login = asyncHandler(async (req, res) => {
 })
 
 // Creating secure logout async method
-const logout = asyncHandler(async(req, res) = {
-    
+const logouUsert = asyncHandler(async(req, res) = {
+
 })
 
 
