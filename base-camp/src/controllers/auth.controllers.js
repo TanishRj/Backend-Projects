@@ -169,6 +169,8 @@ const login = asyncHandler(async (req, res) => {
         )
 })
 
+// Creating secure logout async method
+
 // Exporting register user 
 export {
     registerUser,
