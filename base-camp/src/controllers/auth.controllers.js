@@ -221,9 +221,20 @@ const getCurrentUser = asyncHandler(async(req, res) => {
 
 // Creating verify email method
 const verifyEmail = asyncHandler(async(req, res) => {
-    
-})
+    // Getting token from request parameters
+    const {verificationToken} = req.params
 
+    // If no token found
+    if(!verificationToken){
+        throw new ApiError(400, "Email verification token is missing")
+    }
+
+    // Hashing the token 
+    let hashedToken = crypto
+        .createHash("sha256")
+        .update(verificationToken)
+        .digest("hex")
+})
 
 
 // const verifyEmail = asyncHandler(async(req, res) => {})
