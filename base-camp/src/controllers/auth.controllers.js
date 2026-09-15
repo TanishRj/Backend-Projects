@@ -234,6 +234,12 @@ const verifyEmail = asyncHandler(async(req, res) => {
         .createHash("sha256")
         .update(verificationToken)
         .digest("hex")
+
+        // Getting one user based on hashed token and expiry greater than current date 
+        await User.findOne({
+            emailVerificationToken: hashedToken,
+            emailVerificationExpiry: {$gt: Date.now()}
+        })
 })
 
 
