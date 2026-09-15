@@ -206,7 +206,17 @@ const logoutUser = asyncHandler(async (req, res) => {
 
 // Creating secure current-user method
 const getCurrentUser = asyncHandler(async(req, res) => {
-    
+    // Returning response
+    return res
+        .status(200)
+        .json(
+            new ApiResponse(
+                200,
+                // Sending user data using verifyJWT (req.user = user)
+                req.user,
+                "Current user fetched Successfully"
+            )
+        ) 
 })
 
 // Exporting register user 
