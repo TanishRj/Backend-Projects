@@ -219,6 +219,13 @@ const getCurrentUser = asyncHandler(async(req, res) => {
         ) 
 })
 
+// Creating verify email method
+const verifyEmail = asyncHandler(async(req, res) => {})
+
+
+
+// const verifyEmail = asyncHandler(async(req, res) => {})
+
 // Exporting register user 
 export {
     registerUser,
