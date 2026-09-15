@@ -8,6 +8,9 @@ import {ApiError} from "../utils/api-error.js"
 import { asyncHandler } from "../utils/async-handler.js"
 // Importing send email method
 import {emailVerificationMailgenContent, sendEmail} from "../utils/mail.js"
+// Importing jwt
+import jwt from "jsonwebtoken"
+
 
 // Generating access and refresh tokens using _id stored in db
 const generateAccessAndRefreshTokens = async(userId) => {
@@ -228,27 +231,160 @@ const verifyEmail = asyncHandler(async(req, res) => {
     if(!verificationToken){
         throw new ApiError(400, "Email verification token is missing")
     }
-
+    
     // Hashing the token 
     let hashedToken = crypto
-        .createHash("sha256")
-        .update(verificationToken)
-        .digest("hex")
+    .createHash("sha256")
+    .update(verificationToken)
+    .digest("hex")
+    
+    // Getting one user based on hashed token and expiry greater than current date 
+    const user = await User.findOne({
+        emailVerificationToken: hashedToken,
+        emailVerificationExpiry: {$gt: Date.now()}
+    })
+    
+    // If no user was found
+    if(!user){
+            throw new ApiError(400, "Token invalid or expired")
+    }
 
-        // Getting one user based on hashed token and expiry greater than current date 
-        await User.findOne({
-            emailVerificationToken: hashedToken,
-            emailVerificationExpiry: {$gt: Date.now()}
-        })
+    // Cleaning so that no unecessary data is present
+    user.emailVerificationToken = undefined
+    user.emailVerificationExpiry = undefined
+
+    // Turning isEmailVerified to true
+    user.isEmailVerified = true
+    // Saving user without validation
+    await user.save({validateBeforeSave: false})
+
+    // Returning response
+    return res
+        .status(200)
+        .json(
+            new ApiResponse(
+                200,
+                 {
+                    isEmailVerified: true
+                 },
+                 "Email is Verified"
+            )
+        )
 })
 
+// Creating re-send email verification token
+const resendEmailVerification = asyncHandler(async(req, res) => {
+    // Finding user based on id (verifyJWT)
+    const user = await User.findById(req.user?._id)
 
-// const verifyEmail = asyncHandler(async(req, res) => {})
+    // If no user
+    if(!user){
+        throw new ApiError(404, "User does not exist")
+    }
 
-// Exporting register user 
+    // If user was found, generate temp token
+
+    // generating (email) temporary token by accessing the method of generate temporary token
+    const {unHashedToken, hashedToken, tokenExpiry} = user.generateTemporaryToken()
+
+    // Storing email verification token and expiry in db
+    user.emailVerificationToken = hashedToken
+    user.emailVerificationExpiry = tokenExpiry
+
+    // Saving user without validation
+    await user.save({validateBeforeSave: false})
+
+    // Sending email using send email method
+    await sendEmail({
+        // Getting email from user using userSchema
+        email: user?.email,
+        subject: "Please verify your email",
+        // Generating mail gen content using method of email template we created
+        mailgenContent:  emailVerificationMailgenContent(
+            // Getting username from user
+            user.username,
+            // Creating verificaiton url route with unhashed token
+            `${req.protocol}://${req.get("host")}/api/v1/users/verify-email/${unHashedToken}`
+        )
+    })
+
+    // Sending Api response if resend email was done
+    return res
+        .status(200)
+        .json(
+            new ApiResponse(
+                200,
+                {},
+                "Mail has been send to your email ID"
+            )
+        ) 
+})
+
+// Creating method to refresh access token 
+const refreshAccessToken = asyncHandler(async(req, res) => {
+    // Fetching refresh token from either cookies or body
+    const incomingRefreshToken = req.cookies.refreshToken || req.body.refreshToken
+
+    // If no refresh token found
+    if(!incomingRefreshToken){
+        throw new ApiError(401, "Unauthorized access")
+    }
+
+    // Verifying token using jwt
+    try {
+        const decodedToken = jwt.verify(incomingRefreshToken, process.env.REFRESH_TOKEN_SECRET)
+        // Getting user details from decoded token which has user functionality
+        const user = await User.findById(decodedToken?._id)
+
+        // If no user was found from decoded token
+        if(!user){
+            throw new ApiError(401, "Invalid Refresh Token")
+        }
+        
+        // Checking if incoming refresh token was not found in db
+        if(incomingRefreshToken !== user?.refreshToken){
+            throw new ApiError(401, "Refresh token expired")
+        }
+
+        // Setting cookie options
+        const options = {
+            httpOnly: true,
+            secure: true
+        }
+
+        // Generating access and refresh token
+        const {accessToken, refreshToken: newRefreshToken} = await generateAccessAndRefreshTokens(user._id)
+
+        // Storing new refresh token based in db
+        user.refreshToken = newRefreshToken
+        // Saving user
+        await user.save()
+
+        // sending response with cookies
+        return res
+            .status(200)
+            .cookie("accessToken", accessToken, options)
+            .cookie("refreshToken", refreshToken, options)
+            .json(
+                new ApiResponse(
+                    200,
+                    {accessToken, refreshToken: newRefreshToken},
+                    "Access token Refreshed"
+                )
+            )
+    } catch (error) {
+        // if any error occured
+        throw new ApiError(401, "Invalid refresh token")
+    }
+})
+
+// Exporting all methods
 export {
     registerUser,
     login,
     logoutUser,
-    getCurrentUser
+    getCurrentUser,
+    verifyEmail,
+    resendEmailVerification,
+    refreshAccessToken
 }
