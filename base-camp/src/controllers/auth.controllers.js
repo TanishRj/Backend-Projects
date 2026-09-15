@@ -205,7 +205,9 @@ const logoutUser = asyncHandler(async (req, res) => {
 })
 
 // Creating secure current-user method
-const getCurrentUser = 
+const getCurrentUser = asyncHandler(async(req, res) => {
+    
+})
 
 // Exporting register user 
 export {
