@@ -7,7 +7,7 @@ import {ApiError} from "../utils/api-error.js"
 // Importing Async Handler
 import { asyncHandler } from "../utils/async-handler.js"
 // Importing send email method
-import {emailVerificationMailgenContent, sendEmail} from "../utils/mail.js"
+import {emailVerificationMailgenContent, forgotPasswordMailgenContent, sendEmail} from "../utils/mail.js"
 // Importing jwt
 import jwt from "jsonwebtoken"
 import { use } from "react"
@@ -404,8 +404,112 @@ const forgotPasswordRequest = asyncHandler(async(req, res) => {
 
     // Sending password reset email
     await sendEmail({
-        
+        // Getting email from user
+        email: user?.email,
+        subject: "Password reset request",
+        // Generating mail gen content using method of email template we created
+        mailgenContent:  forgotPasswordMailgenContent(
+            // Getting username from user
+            user.username,
+            // Getting verificaiton url from env file with unhashed token 
+            `${process.env.FORGOT_PASSWORD_REDIRECT_URL}/${unHashedToken}`
+        )
     })
+
+    // Returning response
+    return res
+        .status(200)
+        .json(
+            new ApiResponse(
+                200,
+                {},
+                "Password Reset mail has been sent to your mail id"
+            )
+        )
+})
+
+// Creating a method to reset forgot password 
+const resetForgotPassword = asyncHandler(async (req, res) => {
+    // Getting temp token from params and new password from body
+    const {resetToken} = req.params
+    const {newPassword} = req.body
+
+    // Hashing the reset token recieved
+    let hashedToken = crypto
+        .createHash("sha256")
+        .update(resetToken)
+        .digest("hex")
+
+    // Finding one user based on forgot password token and expiry
+    const user = await User.findOne({
+        forgotPasswordToken: hashedToken,
+        forgotPasswordExpiry: {$gt: Date.now()}
+    })
+
+    // if no user found
+    if(!user){
+        throw new ApiError(414, "Token is invalid or expired")
+    }
+
+    // Removing the forgot password and expiry before setting new password
+    user.forgotPasswordExpiry = undefined
+    user.forgotPasswordToken = undefined
+
+    // Setting new Password (pre hook will work for hashing)
+    user.password = newPassword
+
+    // Saving user without validation
+    await user.save({validateBeforeSave: false})
+
+    // Returning response
+    return res
+        .status(200)
+        .json(
+            new ApiResponse(
+                200,
+                {},
+                "Password Reset Done!"
+            )
+        )
+})
+
+// Method for Chanding current password
+const changeCurrentPassword = asyncHandler(async (req, res) => {
+    // Getting old and new password
+    const {oldPassword, newPassword} = req.body 
+
+    // Getting user by id (verifyJWT)
+    const user = await User.findById(req.user?._id)
+
+    // If no user found
+    if(!user){
+        throw new ApiError(404, "No user found or you are not logged in")
+    }
+    
+    // If old password matches in db
+    const isPasswordValid = await user.isPasswordCorrect(oldPassword)
+    
+    // If old password is not valid
+    if(!isPasswordValid){
+        throw new ApiError(400, "Invalid Old Password")
+    }
+
+    // If password is valid
+    user.password = newPassword
+    // Saving user without validation
+    await user.save({validateBeforeSave: false})
+
+    // Returning response
+    return res
+        .status(200)
+        .json(
+            new ApiResponse(
+                200,
+                {},
+                "Password Changed!"
+            )
+        )
+
 })
 
 // Exporting all methods
@@ -416,5 +520,8 @@ export {
     getCurrentUser,
     verifyEmail,
     resendEmailVerification,
-    refreshAccessToken
+    refreshAccessToken,
+    forgotPasswordRequest,
+    resetForgotPassword,
+    changeCurrentPassword,
 }
