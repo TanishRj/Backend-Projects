@@ -378,6 +378,10 @@ const refreshAccessToken = asyncHandler(async(req, res) => {
     }
 })
 
+const forgotPasswordRequest = asyncHandler(async(req, res) => {
+    
+})
+
 // Exporting all methods
 export {
     registerUser,
