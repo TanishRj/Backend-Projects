@@ -378,8 +378,9 @@ const refreshAccessToken = asyncHandler(async(req, res) => {
     }
 })
 
+// Creating a forgot
 const forgotPasswordRequest = asyncHandler(async(req, res) => {
-    
+
 })
 
 // Exporting all methods
