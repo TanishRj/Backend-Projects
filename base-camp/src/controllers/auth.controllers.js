@@ -380,6 +380,7 @@ const refreshAccessToken = asyncHandler(async(req, res) => {
 
 // Creating a forgot password controller
 const forgotPasswordRequest = asyncHandler(async(req, res) => {
+    // Get email from body
 
 })
 
