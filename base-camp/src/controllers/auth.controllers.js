@@ -384,6 +384,7 @@ const forgotPasswordRequest = asyncHandler(async(req, res) => {
     const {email} = req.body
 
     // Searching user using email
+    const user = await User.findOne({email})
 })
 
 // Exporting all methods
