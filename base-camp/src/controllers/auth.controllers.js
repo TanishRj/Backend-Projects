@@ -385,6 +385,11 @@ const forgotPasswordRequest = asyncHandler(async(req, res) => {
 
     // Searching user using email
     const user = await User.findOne({email})
+
+    // Checking if user exists or not
+    if(!user){
+        throw new ApiError(404, "User not found with email")
+    }
 })
 
 // Exporting all methods
