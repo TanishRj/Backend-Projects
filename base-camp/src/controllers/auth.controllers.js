@@ -10,6 +10,7 @@ import { asyncHandler } from "../utils/async-handler.js"
 import {emailVerificationMailgenContent, sendEmail} from "../utils/mail.js"
 // Importing jwt
 import jwt from "jsonwebtoken"
+import { use } from "react"
 
 
 // Generating access and refresh tokens using _id stored in db
@@ -390,6 +391,21 @@ const forgotPasswordRequest = asyncHandler(async(req, res) => {
     if(!user){
         throw new ApiError(404, "User not found with email")
     }
+
+    // Generating temporary token 
+    const {unHashedToken, hashedToken, tokenExpiry} = user.generateTemporaryToken()
+
+    // Storing forgot password and expiry to db
+    user.forgotPasswordToken = hashedToken
+    user.forgotPasswordExpiry = tokenExpiry
+
+    // Saving user without validation
+    await user.save({validateBeforeSave: false})
+
+    // Sending password reset email
+    await sendEmail({
+        
+    })
 })
 
 // Exporting all methods
