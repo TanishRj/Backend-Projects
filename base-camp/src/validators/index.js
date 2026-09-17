@@ -80,11 +80,39 @@ const userChangeCurrentPasswordValidator = () => {
 }
 
 // Creating new validator for user forgot password
- 
+const userForgotPasswordValidator = () => {
+    return [
+        // Email validator
+        body("email")
+        .notEmpty()
+        .withMessage("Email is required")
+        .isEmail()
+        .withMessage("Email is invalid")
+        
+    ]
+}
+
+// Creating new validator for user reset forgot password
+const userResetForgotPasswordValidator = () => {
+    return [
+        body("newPassword")
+            .notEmpty()
+            .withMessage("Password is Required")
+    ]
+}
+
+// Creating new validator for user forgot password
+
+
+
+
+// Creating new validator for user forgot password
+
 
 // Exporting method
 export {
     userRegisterValidator,
     userLoginValidator,
-    userChangeCurrentPasswordValidator
+    userChangeCurrentPasswordValidator,
+    userForgotPasswordValidator
 }
