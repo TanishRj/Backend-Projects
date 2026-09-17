@@ -62,6 +62,9 @@ const userLoginValidator = () => {
     ]
 }
 
+// Creating new validator for current password change
+const 
+
 // Exporting method
 export {
     userRegisterValidator,
