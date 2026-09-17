@@ -11,6 +11,7 @@ app.use(authenticationMiddleware)
 
 app.get('/', (req, res) => {
     res.json({
+        Project: '🔗 URL Shortner 🔗',
         status: 'API Health OK ✅',
         Madeby: '❄️ Tanish Choudhary ❄️',
         Github: '🌀 https://github.com/TanishRj 🌀',
