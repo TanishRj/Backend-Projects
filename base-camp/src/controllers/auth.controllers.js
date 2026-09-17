@@ -10,8 +10,6 @@ import { asyncHandler } from "../utils/async-handler.js"
 import {emailVerificationMailgenContent, forgotPasswordMailgenContent, sendEmail} from "../utils/mail.js"
 // Importing jwt
 import jwt from "jsonwebtoken"
-import { use } from "react"
-
 
 // Generating access and refresh tokens using _id stored in db
 const generateAccessAndRefreshTokens = async(userId) => {
