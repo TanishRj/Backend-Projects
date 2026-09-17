@@ -64,11 +64,12 @@ const userLoginValidator = () => {
 
 // Creating new validator for current password change
 const userChangeCurrentPasswordValidator = () => {
-    
+
 }
 
 // Exporting method
 export {
     userRegisterValidator,
-    userLoginValidator
+    userLoginValidator,
+    userChangeCurrentPasswordValidator
 }
