@@ -43,7 +43,12 @@ app.use("/api/v1/auth", authRouter)
 // Creating a GET request which sends some responds if requested 
 app.get('/', (req, res) => {
 // Sending server response as API Health OK
-  res.send('API Health OK')
+  res.json({
+        Project: '🔗 Basecamp 🔗',
+        status: 'API Health OK ✅',
+        Madeby: '❄️ Tanish Choudhary ❄️',
+        Github: '🌀 https://github.com/TanishRj 🌀',
+    })
 })
 
 // Exporting app
