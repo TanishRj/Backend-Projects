@@ -2,13 +2,13 @@
 import { Router } from "express";
 
 // Importing register user controller
-import {registerUser, login, logoutUser} from "../controllers/auth.controllers.js"
+import {registerUser, login, logoutUser, verifyEmail, refreshAccessToken, forgotPasswordRequest, resetForgotPassword, getCurrentUser, changeCurrentPassword, resendEmailVerification} from "../controllers/auth.controllers.js"
 
 // Importing validate middleware
 import {validate} from  "../middlewares/validator.middleware.js"
 
 // Importing validators
-import {userRegisterValidator, userLoginValidator} from "../validators/index.js"
+import {userRegisterValidator, userLoginValidator, userForgotPasswordValidator, userResetForgotPasswordValidator, userChangeCurrentPasswordValidator} from "../validators/index.js"
 
 // Importing verify JWT
 import {verifyJWT} from '../middlewares/auth.middleware.js'
@@ -26,11 +26,28 @@ router.route("/register").post(userRegisterValidator(), validate, registerUser)
 router.route("/login").post(userRegisterValidator(), validate, login)
 
 // Creating route for verify email using verificationToken
-r
+router.route("/verify-email/:verificationToken").get(verifyEmail)
+
+// Creating route for refreshing access token
+router.route("/refresh-token").post(refreshAccessToken)
+
+// Creating forgot password route with validator and validation 
+router.route("/forgot-password").post(userForgotPasswordValidator(), validate, forgotPasswordRequest)
+
+// Creating post route for reset password using resetToken, validator and validation
+router.route("/reset-password/:resetToken").post(userResetForgotPasswordValidator(),  validate, resetForgotPassword)
 
 // SECURE ROUTES
-// Logout user with validate JWT middleware
+// Logout user with verify JWT middleware
 router.route("/logout").post(verifyJWT, logoutUser)
+// Creating current user route
+router.route("/current-user").post(verifyJWT, getCurrentUser)
+// Creating forgot password route with verifyJWT, validator and validation
+router.route("/change-password").post(verifyJWT, userChangeCurrentPasswordValidator(), validate, changeCurrentPassword)
+// Creating resend email verification route
+router.route("/resend-email-verification").post(verifyJWT, resendEmailVerification)
+
+
 
 // Exporting Router
 export default router
