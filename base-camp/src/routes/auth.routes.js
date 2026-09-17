@@ -15,7 +15,7 @@ import {verifyJWT} from '../middlewares/auth.middleware.js'
 
 // Creating a router
 const router = Router()
-
+// UNSECURE ROUTES
 // Creating post route to register user
 // 1. Run validation and collect some errors
 // 2. Give errors to validate middleware to handle them
