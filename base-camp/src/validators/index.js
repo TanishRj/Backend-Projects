@@ -101,13 +101,6 @@ const userResetForgotPasswordValidator = () => {
     ]
 }
 
-// Creating new validator for user forgot password
-
-
-
-
-// Creating new validator for user forgot password
-
 
 // Exporting method
 export {
