@@ -44,7 +44,7 @@ app.use("/api/v1/auth", authRouter)
 app.get('/', (req, res) => {
 // Sending server response as API Health OK
   res.json({
-        Project: ' 🏡 Basecamp 🏡',
+        Project: ' 🏡  🏡',
         status: 'API Health OK ✅',
         Madeby: '❄️ Tanish Choudhary ❄️',
         Github: '🌀 https://github.com/TanishRj 🌀',
