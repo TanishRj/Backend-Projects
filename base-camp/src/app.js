@@ -46,7 +46,7 @@ app.get('/', (req, res) => {
   res.json({
         Project: ' 🏡 Basecamp 🏡',
         status: 'API Health OK ✅',
-        Madeby: '❄️ Tanish Choudhary ❄️',
+        Madeby: '❄️  ❄️',
         Github: '🌀 https://github.com/TanishRj 🌀',
     })
 })
