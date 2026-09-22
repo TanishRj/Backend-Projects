@@ -45,7 +45,7 @@ app.get('/', (req, res) => {
 // Sending server response as API Health OK
   res.json({
         Project: ' 🏡 Basecamp 🏡',
-        status: 'API Health OK ',
+        status: 'API Health OK ✅',
         Madeby: '❄️ Tanish Choudhary ❄️',
         Github: '🌀 https://github.com/TanishRj 🌀',
     })
